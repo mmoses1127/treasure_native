@@ -1,0 +1,105 @@
+.hero_wrapper {
+  width: 100vw;
+  padding: 0 5vw;
+
+  .hero {
+    position: absolute;
+    top: calc(50vh - 20vh);
+    height: 60vh;
+
+    .hero_title{
+      width: 50vw;
+      margin: auto 0;
+      
+      p {
+        margin: 2vh 0 5vh 0;
+      }
+
+      button {
+        margin-right: 1vw;
+        width: 9vw;
+        cursor: pointer;
+      }
+
+      .border-btn {
+        border: 1px solid var(--orange);
+        background-color: var(--white);
+        color: var(--orange);
+      }
+
+      .border-btn:hover {
+        background-color: var(--orange);
+        color: var(--white);
+      }
+
+      .demo-btn {
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+// Main Page CSS
+.main_page footer {
+  position: absolute;
+}
+
+// Main Page Animation
+.man_map_wrapper {
+  width: 40vw;
+
+  svg {
+   width: 65%;
+  }
+
+  #marker {
+    transform: translateY(-10px);
+    animation: marker 2s infinite linear;
+  }
+
+  @keyframes marker {
+    0% {
+      transform: translateY(-10px);
+    }
+
+    50% {
+      transform: translateY(5px);
+    }
+
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+  #eyes {
+    transform: translate(5px, 2px);
+    animation: eyes 10s linear infinite alternate;
+  }
+
+  @keyframes eyes {
+    0% {
+      transform: translate(5px, 2px);
+    }
+
+    50% {
+      transform: translateY(1px);
+    }
+
+    100% {
+      transform: translate(5px, 2px);
+    }
+  }
+
+  #line {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear forwards;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+}
