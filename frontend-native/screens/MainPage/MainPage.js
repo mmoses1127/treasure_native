@@ -18,18 +18,24 @@ function MainPage() {
   const splashButtons = () => {
     if (loggedIn) {
       return (
-        <div className='hero_button flex-row justify-start'>
+        <View className='hero_button flex-row justify-start'>
           <Pressable className='demo-btn' onPress={demoLogin}> <Text>DEMO</Text></Pressable>
-        </div>
+        </View>
       )
       
     } else {
       return (
-        <div className='hero_button flex-row justify-start'>
-          <Pressable className='border-btn'> <Text>Sign up</Text></Pressable>
-          <Pressable className='border-btn'><Text>Log in</Text></Pressable>
-          <Pressable className='demo-btn' onPress={demoLogin}><Text>DEMO</Text></Pressable>
-        </div>
+        <View className='hero_button flex-row justify-start'>
+          <Pressable className='border-btn'> 
+            <Text>Sign up</Text>
+          </Pressable>
+          <Pressable className='border-btn'>
+            <Text>Log in</Text>
+          </Pressable>
+          <Pressable className='demo-btn' onPress={demoLogin}>
+            <Text>DEMO</Text>
+          </Pressable>
+        </View>
       )
     }
   }

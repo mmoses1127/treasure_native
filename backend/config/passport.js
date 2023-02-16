@@ -10,7 +10,6 @@ const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = secretOrKey;
-
 passport.use(new JwtStrategy(options, async (jwtPayload, done) => {
   try {
     const user = await User.findById(jwtPayload._id)
