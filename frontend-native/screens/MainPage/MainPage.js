@@ -8,11 +8,14 @@ import { login, clearSessionErrors } from '../../store/session';
 // import './MainPage.scss';
 import {View, Button, Text, Pressable} from 'react-native';
 
-function MainPage() {
+function MainPage({navigation}) {
+
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => !!state.session.user);
   const demoLogin = ()=> {
-    dispatch(login({email: 'demo@user.io', password: 'password'}))
+    console.log('demo login')
+    dispatch(login({email: 'demo@user.io', password: 'password'}));
+    navigation.push('DemoLobby');
   }
 
   const splashButtons = () => {
