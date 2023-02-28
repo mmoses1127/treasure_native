@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup, clearSessionErrors, updateUserImage } from '../../store/session';
 import UploadImages from '../AWSTest/ImageUploader';
+import Footer from '../NavBar/Footer';
+import './SessionForm.scss';
+import { useHistory } from 'react-router-dom';
 import { getCurrentUser } from '../../store/session';
 
 function SignupForm () {
@@ -10,7 +13,7 @@ function SignupForm () {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [imageFile, setImageFile] = useState('');
-  // const history = useHistory()
+  const history = useHistory()
   const errors = useSelector(state => state.errors.session);
   const dispatch = useDispatch();
 
@@ -135,7 +138,7 @@ function SignupForm () {
           
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </section>
   );
 }
