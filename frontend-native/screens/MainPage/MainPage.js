@@ -32,7 +32,7 @@ function MainPage({navigation}) {
           <Pressable className='border-btn' onPress={()=>navigation.push('Signup')}> 
             <Text>Sign up</Text>
           </Pressable>
-          <Pressable className='border-btn'>
+          <Pressable className='border-btn' onPress={()=>navigation.push('Login')}>
             <Text>Log in</Text>
           </Pressable>
           <Pressable className='demo-btn' onPress={demoLogin}>
