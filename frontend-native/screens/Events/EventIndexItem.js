@@ -22,26 +22,26 @@ function EventIndexItem({event, navigation}) {
   };
 
   return (
-    <li className="event_index_list">
-      <div className="flex-row">
-        <div className="event_list_details">
+    <View className="event_index_list">
+      <View className="flex-row">
+        <View className="event_list_details">
           <h2>{event.name}</h2>
-          <p className="location">{event.location}</p>
-          <p>{day}, {date}</p>
-          <p>{hour} {ampm}</p>
-          <p>{duration} {duration === 1 ? 'hour' : 'hours'}</p>
-          <p>${event.price}</p>
-        </div>
-        <div className="event_list_img flex-row justify-end">
+          <Text className="location">{event.location}</Text>
+          <Text>{day}, {date}</Text>
+          <Text>{hour} {ampm}</Text>
+          <Text>{duration} {duration === 1 ? 'hour' : 'hours'}</Text>
+          <Text>${event.price}</Text>
+        </View>
+        <View className="event_list_img flex-row justify-end">
           <picture>
             {eventImg()}
           </picture>
-        </div>
-      </div>
+        </View>
+      </View>
       <Pressable onPress={navigation.push('EventLobby', {eventId: event._id})}>
         <Text>Check event</Text>
       </Pressable>
-    </li>
+    </View>
   );
 }
 
