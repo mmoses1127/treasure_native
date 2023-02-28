@@ -8,6 +8,9 @@ import { Provider } from 'react-redux';
 import MainPage from './screens/MainPage/MainPage';
 import DemoLobby from './screens/DemoLobby/DemoLobby';
 import OnlineGameMap from './screens/Maps/NativeOnlineMaps/DummyOnlineGameMap';
+import LoginForm from './screens/SessionForms/LoginForm';
+import SignupForm from './screens/SessionForms/SignupForm';
+import EventIndex from './screens/Events/EventIndex';
 
 export default function App() {
   const store = configureStore();
@@ -19,6 +22,9 @@ export default function App() {
       <Stack.Screen name="MainPage" component={MainPage} />
       <Stack.Screen name="DemoLobby" component={DemoLobby} />
       <Stack.Screen name="OnlineGame" component={OnlineGameMap} />
+      <Stack.Screen name="Login" component={LoginForm} />
+      <Stack.Screen name="Signup" component={SignupForm} />
+      <Stack.Screen name="Events" component={EventIndex} />
       </Stack.Navigator>
     </NavigationContainer>
   </Provider>

@@ -1,16 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
 import { login, clearSessionErrors } from '../../store/session';
-import Footer from '../NavBar/Footer';
-import './SessionForm.scss';
+import { Pressable, Text, View, TextInput } from 'react-native';
 
 
-function LoginForm () {
+function LoginForm ({navigation}) {
   const dispatch = useDispatch();
   const errors = useSelector(state => state.errors.session);
-  const history = useHistory();
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,49 +28,52 @@ function LoginForm () {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    history.push('/events');
+    navigation.push('Events');
   }
 
   return (
-    <section className='login_page'>
-      <div className='session_wrapper login flex-col justify-center'>
-        <h2 className='text-center'>Log In</h2>
-        <div className='session_content flex-row justify-center align-center'>
-          <form className="session-form flex-col" 
-            onSubmit={handleSubmit}>
-            <div className="errors">{errors?.email}</div>
-            <label>
-              <span>Email</span>
-              <input type="text"
+    <View className='login_page'>
+      <View className='session_wrapper login flex-col justify-center'>
+        <Text className='text-center'>Log In</Text>
+        <View className='session_content flex-row justify-center align-center'>
+          <View className="session-form flex-col" > 
+            <View className="errors">
+              <Text>{errors?.email}</Text> 
+              </View>
+              <Text>Email</Text>
+              <TextInput 
                 value={email}
-                onChange={update('email')}
+                onChangeText={update('email')}
                 placeholder="Email"
               />
-            </label>
-            <div className="errors">{errors?.password}</div>
-            <label>
-              <span>Password</span>
-              <input type="password"
+            <View className="errors">
+              <Text>{errors?.password}</Text>
+              </View>
+              <Text>Password</Text>
+              <TextInput 
                 value={password}
-                onChange={update('password')}
+                onChangeText={update('password')}
                 placeholder="Password"
               />
-            </label>
-            <input
-              type="submit"
+            <TextInput
               value="Log In"
               disabled={!email || !password}
             />
-          </form>
-          <div className='border'></div>
-          <div className='create_account_wrapper'>
-            <p>New to Treasure?</p>
-            <Link to={'/signup'}>Create an account</Link>
-        </div>
-        </div>
-      </div>
-      <Footer />
-    </section>
+          </View>
+          <View className='border'></View>
+          <View className='create_account_wrapper'>
+            <Text>New to Treasure?</Text>
+            <Pressable onPress={()=>navigation.push('Signup')}>
+              <Text>Create an account</Text>
+            </Pressable>
+        </View>
+        </View>
+      </View>
+      {/* <Footer /> */}
+      <Pressable onPress={handleSubmit}>
+        <Text>Login!</Text>
+      </Pressable>
+    </View>
   );
 }
 
