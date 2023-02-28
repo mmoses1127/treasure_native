@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { signup, clearSessionErrors, updateUserImage } from '../../store/session';
 import UploadImages from '../AWSTest/ImageUploader';
 import Footer from '../NavBar/Footer';
-import './SessionForm.scss';
 import { useHistory } from 'react-router-dom';
 import { getCurrentUser } from '../../store/session';
 
@@ -71,7 +70,7 @@ function SignupForm () {
     };
 
     dispatch(signup(user))
-     .then((newUser) => {
+    .then((newUser) => {
       if (newUser.currentUser) {
         dispatch(updateUserImage(newUser.currentUser._id, formData) )
         setTimeout(function(){
@@ -82,64 +81,56 @@ function SignupForm () {
   }
 
   return (
-    <section className='signup_page'>
-      <div className='session_wrapper flex-col justify-center align-center'>
-      <h2 className='text-center'>Sign Up</h2>
-        <div className='session_content flex-row align-center'>
-          <form className="session-form flex-col" 
+    <View className='signup_page'>
+      <View className='session_wrapper flex-col justify-center align-center'>
+      <Text className='text-center'>Sign Up</Text>
+        <View className='session_content flex-row align-center'>
+          <View className="session-form flex-col" 
             onSubmit={usernameSubmit} encType="multipart/form-data">
-            <label>
-              <span>Email</span>
-              <input type="email"
+              <Text>Email</Text>
+              <TextInput type="email"
                 value={email}
                 onChange={update('email')}
                 placeholder="Email"
               />
-            </label>
-            <div className="errors">{errors?.email}</div>
-            <label>
-              <span>Username</span>
-              <input type="text"
+            <View className="errors">{errors?.email}</View>
+              <Text>Username</Text>
+              <TextInput type="text"
                 value={username}
                 onChange={update('username')}
                 placeholder="Username"
               />
-            </label>
-            <div className="errors">{errors?.username}</div>
-            <label>
-              <span>Password</span>
-              <input type="password"
+            <View className="errors">{errors?.username}</View>
+              <Text>Password</Text>
+              <TextInput type="password"
                 value={password}
                 onChange={update('password')}
                 placeholder="Password"
               />
-            </label>
-            <div className="errors">{errors?.password}</div>
-            <label>
-              <span>Confirm Password</span>
-              <input type="password"
+            <View className="errors">{errors?.password}</View>
+              <Text>Confirm Password</Text>
+              <TextInput type="password"
                 value={password2}
                 onChange={update('password2')}
                 placeholder="Confirm Password"
               />
-            </label>
-            <div className="errors">
+            <View className="errors">
               {password !== password2 && 'Confirm Password field must match'}
-            </div>
-            <input type="file" onChange={updateImage} multiple />
-            <input
+            </View>
+            <TextInput type="file" onChange={updateImage} multiple />
+            <TextInput
               type="submit"
               id='file2'
               value="Sign Up"
               accept=".jpg, .jpeg, .png"
               disabled={!email || !username || !password || password !== password2}
             />
-          </form>
+          </View>
           
-        </div>
-      </div>
+        </View>
+      </View>
       <Footer />
-    </section>
+    </View>
   );
 }
 
