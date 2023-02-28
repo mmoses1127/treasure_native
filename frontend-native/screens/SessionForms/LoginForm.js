@@ -1,10 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
 import { login, clearSessionErrors } from '../../store/session';
-import Footer from '../NavBar/Footer';
-import './SessionForm.scss';
 
 
 function LoginForm () {

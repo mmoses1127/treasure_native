@@ -29,7 +29,7 @@ function MainPage({navigation}) {
     } else {
       return (
         <View className='hero_button flex-row justify-start'>
-          <Pressable className='border-btn'> 
+          <Pressable className='border-btn' onPress={()=>navigation.push('Signup')}> 
             <Text>Sign up</Text>
           </Pressable>
           <Pressable className='border-btn'>

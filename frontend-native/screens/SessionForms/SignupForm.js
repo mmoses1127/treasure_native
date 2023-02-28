@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup, clearSessionErrors, updateUserImage } from '../../store/session';
 import UploadImages from '../AWSTest/ImageUploader';
-import Footer from '../NavBar/Footer';
-import './SessionForm.scss';
-import { useHistory } from 'react-router-dom';
 import { getCurrentUser } from '../../store/session';
 
 function SignupForm () {
