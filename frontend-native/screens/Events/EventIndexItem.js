@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 import defaultImage from '../../assets/images/defaultImage.svg';
-import './Event.scss'
 
-function EventIndexItem({event}) {
+function EventIndexItem({event, navigation}) {
   const dateObj = new Date(event.date);
   const dateStrg = String(dateObj)
   const localTime = dateObj.toLocaleString('en-eg', {timeZone:"America/Los_Angeles"});
@@ -41,7 +38,9 @@ function EventIndexItem({event}) {
           </picture>
         </div>
       </div>
-      <Link to={`/events/${event._id}`}><Button>Check event</Button></Link>
+      <Pressable onPress={navigation.push('EventLobby', {eventId: event._id})}>
+        <Text>Check event</Text>
+      </Pressable>
     </li>
   );
 }

@@ -20,9 +20,9 @@ function LoginForm ({navigation}) {
     };
   }, [dispatch]);
 
-  const update = (field) => {
+  const update = (field, text) => {
     const setState = field === 'email' ? setEmail : setPassword;
-    return e => setState(e.currentTarget.value);
+    return e => setState(text);
   }
 
   const handleSubmit = (e) => {
@@ -42,8 +42,8 @@ function LoginForm ({navigation}) {
               </View>
               <Text>Email</Text>
               <TextInput 
-                value={email}
-                onChangeText={update('email')}
+                autoCapitalize={'none'} 
+                onChangeText={text => update('email', text)}
                 placeholder="Email"
               />
             <View className="errors">
@@ -51,14 +51,14 @@ function LoginForm ({navigation}) {
               </View>
               <Text>Password</Text>
               <TextInput 
-                value={password}
-                onChangeText={update('password')}
+                secureTextEntry={true}
+                autoCapitalize={'none'} 
+                onChangeText={text => update('password', text)}
                 placeholder="Password"
               />
-            <TextInput
-              value="Log In"
-              disabled={!email || !password}
-            />
+            <Pressable onPress={handleSubmit}>
+              <Text>Login!</Text>
+            </Pressable>
           </View>
           <View className='border'></View>
           <View className='create_account_wrapper'>
@@ -70,9 +70,7 @@ function LoginForm ({navigation}) {
         </View>
       </View>
       {/* <Footer /> */}
-      <Pressable onPress={handleSubmit}>
-        <Text>Login!</Text>
-      </Pressable>
+
     </View>
   );
 }

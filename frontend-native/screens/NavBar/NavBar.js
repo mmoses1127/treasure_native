@@ -1,7 +1,5 @@
-import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout, login } from '../../store/session';
-import './NavBar.scss';
 import { Button } from 'react-bootstrap';
 
 function NavBar () {

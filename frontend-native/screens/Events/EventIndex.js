@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchEvents, loadEvents } from '../../store/events';
 import EventIndexItem from './EventIndexItem';
 import Footer from '../NavBar/Footer';
-import EventIndexMapWrapper from './EventIndexMap';
-import './Event.scss';
-
+import NativeEventIndexMap from './NativeEventIndexMap';
 function EventIndex() {
   const dispatch = useDispatch();
   let events = useSelector(loadEvents);
@@ -30,7 +28,7 @@ function EventIndex() {
             </ul>
           </div>
           <div id='event_map'>
-            <EventIndexMapWrapper/>
+            <NativeEventIndexMap/>
           </div>
         </div>
       </div>
