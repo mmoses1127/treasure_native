@@ -6,14 +6,19 @@ import {View, Pressable, Image, Text} from 'react-native';
 // import Calendar from '../../assets/images/Calendar.svg';
 // import Treasure from '../../assets/images/Treasure.svg';
 
-const DemoLobby = () => {
+
+
+const DemoLobby = ({navigation}) => {
+
     return (
       <View className='demo_page'>
         <View className='flex-row justify-center'>
           <View className='left_demo flex-col align-center'>
-            {/* <Image src={Treasure} alt="demo_hunt" /> */}
+            <Image 
+            style={{width:'50%', height:'50%'}}
+            source={{uri: 'https://t3.ftcdn.net/jpg/04/68/41/04/360_F_468410468_xADVq1CkpsbqlGXK6vREYqsJjHEgCkRr.jpg'}} />
             {/* <Link className="lobby-link" to={'/events/638a9e6fcbf4f1662f53440a/online-game'}> */}
-              <Pressable className="lobby-button" >
+              <Pressable className="lobby-button" onPress={()=> navigation.push('/events/638a9e6fcbf4f1662f53440a/online-game')}>
                   <Text>Try Our Demo Hunt!</Text>
               </Pressable>
             {/* </Link> */}
