@@ -18,7 +18,9 @@ const DemoLobby = ({navigation}) => {
             style={{width:'50%', height:'50%'}}
             source={{uri: 'https://t3.ftcdn.net/jpg/04/68/41/04/360_F_468410468_xADVq1CkpsbqlGXK6vREYqsJjHEgCkRr.jpg'}} />
             {/* <Link className="lobby-link" to={'/events/638a9e6fcbf4f1662f53440a/online-game'}> */}
-              <Pressable className="lobby-button" onPress={()=> navigation.push('/events/638a9e6fcbf4f1662f53440a/online-game')}>
+              <Pressable className="lobby-button" onPress={()=> navigation.push('OnlineGame', {
+                eventId: '638a9e6fcbf4f1662f53440a'
+              })}>
                   <Text>Try Our Demo Hunt!</Text>
               </Pressable>
             {/* </Link> */}

@@ -7,6 +7,7 @@ import configureStore from './store/store';
 import { Provider } from 'react-redux';
 import MainPage from './screens/MainPage/MainPage';
 import DemoLobby from './screens/DemoLobby/DemoLobby';
+import OnlineGameMap from './screens/Maps/NativeOnlineMaps/DummyOnlineGameMap';
 
 export default function App() {
   const store = configureStore();
@@ -17,6 +18,7 @@ export default function App() {
       <Stack.Navigator initialRouteName='MainPage'>
       <Stack.Screen name="MainPage" component={MainPage} />
       <Stack.Screen name="DemoLobby" component={DemoLobby} />
+      <Stack.Screen name="OnlineGame" component={OnlineGameMap} />
       </Stack.Navigator>
     </NavigationContainer>
   </Provider>
